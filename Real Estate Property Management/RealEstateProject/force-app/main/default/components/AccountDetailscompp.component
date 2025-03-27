@@ -1,0 +1,5 @@
+<apex:component access="global">
+    <p>
+        Hello World
+    </p>
+</apex:component>

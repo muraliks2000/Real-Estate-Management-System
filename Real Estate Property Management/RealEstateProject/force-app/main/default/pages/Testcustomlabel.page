@@ -1,0 +1,8 @@
+<apex:page >
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection title="{!$Label.Registration_Name}">
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

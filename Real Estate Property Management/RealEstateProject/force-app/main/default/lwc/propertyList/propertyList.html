@@ -1,0 +1,53 @@
+<template>
+    <lightning-card title="Property List" icon-name="standard:house">
+        <!-- Filters Section -->
+        <div class="slds-p-around_medium">
+            <lightning-input type="number" label="Max Price" onchange={handleFilterChange} data-filter="price"></lightning-input>
+            <lightning-combobox 
+                label="Availability Status"
+                options={availabilityOptions}
+                onchange={handleFilterChange}
+                data-filter="availability">
+            </lightning-combobox>
+            <lightning-combobox 
+                label="Furnishing Status"
+                options={furnishingOptions}
+                onchange={handleFilterChange}
+                data-filter="furnishing">
+            </lightning-combobox>
+            <lightning-input type="number" label="Nearby Distance (km)" onchange={handleFilterChange} data-filter="distance"></lightning-input>
+        </div>
+
+        <!-- Property List Table -->
+        <div class="slds-p-around_medium">
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <th>Property Name</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Availability</th>
+                        <th>Furnishing Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={properties} for:item="property">
+                        <tr key={property.Id}>
+                            <td>{property.Name}</td>
+                            <td>{property.Address}</td>
+                            <td>{property.Price}</td>
+                            <td>{property.Availability}</td>
+                            <td>{property.FurnishingStatus}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="slds-p-around_medium slds-align_absolute-center">
+            <lightning-button label="Previous" onclick={handlePrevious} disabled={disablePrevious}></lightning-button>
+            <lightning-button label="Next" onclick={handleNext} disabled={disableNext} class="slds-m-left_x-small"></lightning-button>
+        </div>
+    </lightning-card>
+</template>
